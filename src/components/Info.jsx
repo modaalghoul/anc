@@ -23,8 +23,12 @@ export const Info = (props) => {
     const showInfo = () => {
         switch (switchInfo) {
             case 1:
-                return <div className="display-4 alert alert-success">
-                    {props.person.Number}
+                return <div className="display-5 alert alert-success">
+                    <p className="black">الرقم الوطني</p>
+                    {props.person.NationalNumber}<br/>
+                    <p className="black">رقم تعريف OpenEMIS</p>
+                     
+                    {props.person.OpenEMIS}
                 </div>
                 break;
 
@@ -49,7 +53,6 @@ export const Info = (props) => {
                 selected={props.birthdate}
                 onChange={d => props.setBirthDate(d)}
                 dateFormat="dd/MM/yyyy"
-                
             />
             <button className="btn btn-warning" onClick={birthDateCheck}>بحث</button>
             {showInfo()}

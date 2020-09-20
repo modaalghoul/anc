@@ -7,7 +7,6 @@ import { Info } from './components/Info'
 import data from './utils/studentsData'
 
 
-
 class App extends React.Component {
   state = {
     name: '',
@@ -16,12 +15,11 @@ class App extends React.Component {
     person: null
   }
 
-
   render() {
     const { name, names, birthdate, person } = this.state
 
     const handleSearch = (e) => {
-
+      this.setState({ person: null })
     }
 
     const setPerson = (person) => {
@@ -42,7 +40,7 @@ class App extends React.Component {
 
     return (
       <div className="App mt-5 ">
-        <img className="mb-3" src={logo} alt=""  />
+        <img className="mb-3" src={logo} alt="" />
         <h5>مدرسة ذكور مخيم عمان الاعدادية الاولى</h5>
         <p>الحصول على رقم الدخول للمنصة الحكومية</p>
 
@@ -52,15 +50,11 @@ class App extends React.Component {
           <button onClick={(e) => handleSearch(e)} >بحث</button>
         </div>
 
-
-
         {
           person ? <Info birthdate={birthdate} setBirthDate={setBirthDate} person={person} /> : renderNames()
         }
 
-
-
-
+        <div className="copyright">developed by <span>alghoul</span></div>
       </div>
     );
   }
